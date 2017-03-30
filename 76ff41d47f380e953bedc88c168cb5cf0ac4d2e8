@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa98f980_03b9512e",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-03-30T10:06:26Z",
+      "side": 1,
+      "message": "remove test-requirements.txt",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 22
+      },
+      "revId": "76ff41d47f380e953bedc88c168cb5cf0ac4d2e8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa98f980_e3ab6dd4",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-03-30T10:06:26Z",
+      "side": 1,
+      "message": "example in swift:\n\nhttps://github.com/rdo-packages/swift-distgit/blob/rpm-master/openstack-swift.tmpfs\nhttps://github.com/rdo-packages/swift-distgit/blob/rpm-master/openstack-swift.spec#L385",
+      "range": {
+        "startLine": 160,
+        "startChar": 39,
+        "endLine": 160,
+        "endChar": 44
+      },
+      "revId": "76ff41d47f380e953bedc88c168cb5cf0ac4d2e8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa98f980_c3ae69e7",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-03-30T10:06:26Z",
+      "side": 1,
+      "message": "Some package must own directory %{_sysconfdir}/%{project} or it will be an orphan directory.",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 90
+      },
+      "revId": "76ff41d47f380e953bedc88c168cb5cf0ac4d2e8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
