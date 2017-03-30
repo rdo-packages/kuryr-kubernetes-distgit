@@ -48,6 +48,23 @@
     },
     {
       "key": {
+        "uuid": "fa98f980_437999fb",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-03-30T16:20:38Z",
+      "side": 1,
+      "message": "The CI job is complaining that it can\u0027t find this file. You may want to try with a wider glob (kuryr* maybe)",
+      "revId": "76ff41d47f380e953bedc88c168cb5cf0ac4d2e8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa98f980_c3ae69e7",
         "filename": "openstack-kuryr-kubernetes.spec",
         "patchSetId": 5
