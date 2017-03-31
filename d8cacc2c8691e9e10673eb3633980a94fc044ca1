@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa98f980_3eb66edd",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 13
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-03-31T13:23:03Z",
+      "side": 1,
+      "message": "Add:\n\ninstall -d %{buildroot}%{_localstatedir}/run/kuryr",
+      "revId": "d8cacc2c8691e9e10673eb3633980a94fc044ca1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
