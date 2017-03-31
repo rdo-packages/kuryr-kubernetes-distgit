@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa98f980_ded9e284",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-03-31T09:55:42Z",
+      "side": 1,
+      "message": "Test requirements need to be listed as BuildRequires, otherwise no tests are executed in %check (see https://review.rdoproject.org/jenkins/job/DLRN-rpmbuild/10476/consoleFull)",
+      "revId": "f6869cb5159834ed7fb578070f6ae4cb36e47fc0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa98f980_bedc1e76",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-03-31T09:55:42Z",
+      "side": 1,
+      "message": "Some of the test-requirements are missing (ddt and testtools at least).",
+      "revId": "f6869cb5159834ed7fb578070f6ae4cb36e47fc0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
