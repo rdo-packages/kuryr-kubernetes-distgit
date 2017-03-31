@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa98f980_3e5e6eea",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-03-31T10:43:16Z",
+      "side": 1,
+      "message": "Missing space",
+      "revId": "ba75a1276a42262b2c2dd086cd3158df4a6616ce",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
