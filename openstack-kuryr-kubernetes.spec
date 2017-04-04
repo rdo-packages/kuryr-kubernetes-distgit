@@ -143,8 +143,8 @@ rm -f test-requirements.txt
 rm -rf kuryr_kubernetes.egg-info
 
 %build
-PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
 %py2_build
+PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
 # generate html docs
 %{__python2} setup.py build_sphinx
 
