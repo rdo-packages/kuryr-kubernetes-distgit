@@ -225,7 +225,4 @@ exit 0
 %license LICENSE
 %{_bindir}/kuryr-cni
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %changelog
