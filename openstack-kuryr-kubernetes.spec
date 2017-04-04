@@ -45,6 +45,9 @@ BuildRequires:  python-testrepository
 BuildRequires:  python-testscenarios
 BuildRequires:  python-ddt
 BuildRequires:  python-testtools
+BuildRequires:  python-oslo-log
+BuildRequires:  python-kuryr-lib
+BuildRequires:  python-os-vif
 
 Requires:       python-%{project}-lib >= 0.4.0
 Requires:       python-pyroute2 >= 0.4.13
@@ -143,8 +146,8 @@ rm -f test-requirements.txt
 rm -rf kuryr_kubernetes.egg-info
 
 %build
-PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
 %py2_build
+PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
 # generate html docs
 %{__python2} setup.py build_sphinx
 
