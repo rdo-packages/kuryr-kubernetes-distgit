@@ -46,6 +46,7 @@ BuildRequires:  python-testscenarios
 BuildRequires:  python-ddt
 BuildRequires:  python-testtools
 BuildRequires:  python-oslo-log
+BuildRequires:  python-oslo-reports
 BuildRequires:  python-kuryr-lib
 BuildRequires:  python-os-vif
 
@@ -55,6 +56,7 @@ Requires:       python-requests >= 2.10.0
 Requires:       python-eventlet >= 0.18.2
 Requires:       python-oslo-config >= 2:3.14.0
 Requires:       python-oslo-log >= 3.11.0
+Requires:       python-oslo-reports >= 0.6.0
 Requires:       python-oslo-serialization >= 1.10.0
 Requires:       python-oslo-service >= 1.10.0
 Requires:       python-oslo-utils >= 3.18.0
