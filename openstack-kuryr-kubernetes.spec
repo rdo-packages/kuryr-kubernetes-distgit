@@ -139,6 +139,8 @@ that Kubelet calls to.
 %autosetup -n %{service}-%{upstream_version} -S git
 
 find %{module} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
+#FIXME https://review.openstack.org/468190
+sed -i 's/kuberentes/kubernetes/' kuryr_kubernetes/opts.py
 
 # Let's handle dependencies ourseleves
 rm -f requirements.txt
