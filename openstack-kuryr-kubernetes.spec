@@ -139,6 +139,8 @@ that Kubelet calls to.
 %autosetup -n %{service}-%{upstream_version} -S git
 
 find %{module} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
+#FIXME https://review.openstack.org/468190
+sed -i 's/kuberentes/kubernetes/' kuryr_kubernetes/opts.py
 
 # Let's handle dependencies ourseleves
 rm -f requirements.txt
@@ -228,3 +230,4 @@ exit 0
 %{_bindir}/kuryr-cni
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/kuryr-kubernetes/commit/?id=a6da8f1215e4f3723ba1527394f1f37fd1594742
