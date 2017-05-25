@@ -228,3 +228,4 @@ exit 0
 %{_bindir}/kuryr-cni
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/kuryr-kubernetes/commit/?id=813aa39a19de3c119c587b85598a2b65b41624ad
