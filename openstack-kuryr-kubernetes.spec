@@ -151,7 +151,9 @@ rm -rf kuryr_kubernetes.egg-info
 %py2_build
 PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
 # generate html docs
-%{__python2} setup.py build_sphinx
+%{__python2} setup.py build_sphinx -b html
+# generate man pages
+%{__python2} setup.py build_sphinx -b man
 
 %install
 %py2_install
