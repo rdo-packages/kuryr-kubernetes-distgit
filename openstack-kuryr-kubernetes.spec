@@ -105,7 +105,7 @@ Summary:    OpenStack Kuryr-Kubernetes documentation
 
 BuildRequires: python-sphinx
 BuildRequires: python-reno
-BuildRequires: python-oslo-sphinx
+BuildRequires: python-openstackdocstheme
 
 %description doc
 This package contains Kuryr Kubernetes documentation.
