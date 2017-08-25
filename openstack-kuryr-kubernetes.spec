@@ -50,19 +50,19 @@ BuildRequires:  python-oslo-reports
 BuildRequires:  python-kuryr-lib
 BuildRequires:  python-os-vif
 
-Requires:       python-%{project}-lib >= 0.4.0
+Requires:       python-%{project}-lib >= 0.5.0
 Requires:       python-pyroute2 >= 0.4.13
 Requires:       python-requests >= 2.10.0
 Requires:       python-eventlet >= 0.18.2
-Requires:       python-oslo-config >= 2:3.14.0
-Requires:       python-oslo-log >= 3.11.0
+Requires:       python-oslo-config >= 2:4.0.0
+Requires:       python-oslo-log >= 3.30.0
 Requires:       python-oslo-reports >= 0.6.0
 Requires:       python-oslo-serialization >= 1.10.0
 Requires:       python-oslo-service >= 1.10.0
-Requires:       python-oslo-utils >= 3.18.0
-Requires:       python-os-vif >= 1.4.0
+Requires:       python-oslo-utils >= 3.20.0
+Requires:       python-os-vif >= 1.7.0
 Requires:       python-six >= 1.9.0
-Requires:       python-stevedore >= 1.17.1
+Requires:       python-stevedore >= 1.20.0
 
 %description -n python2-%{service}
 Kuryr Kubernetes provides a Controller that watches the Kubernetes API for
