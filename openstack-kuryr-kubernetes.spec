@@ -18,9 +18,7 @@ Source3:   openstack-kuryr.tmpfs
 BuildArch: noarch
 
 Requires(pre): shadow-utils
-Requires(post): systemd
-Requires(preun): systemd
-Requires(postun): systemd
+%{?systemd_requires}
 
 %description
 Kuryr-Kubernetes brings OpenStack networking to Kubernetes clusters
