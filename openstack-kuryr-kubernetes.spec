@@ -3,6 +3,11 @@
 %global service kuryr-kubernetes
 %global module kuryr_kubernetes
 
+%global common_desc \
+Kuryr Kubernetes provides a Controller that watches the Kubernetes API for \
+Object changes and manages Neutron resources to provide the Kubernetes Cluster \
+with OpenStack networking.
+
 Name:      openstack-%service
 Version:   XXX
 Release:   XXX
@@ -63,9 +68,7 @@ Requires:       python-six >= 1.9.0
 Requires:       python-stevedore >= 1.20.0
 
 %description -n python2-%{service}
-Kuryr Kubernetes provides a Controller that watches the Kubernetes API for
-Object changes and manages Neutron resources to provide the Kubernetes Cluster
-with OpenStack networking.
+%{common_desc}
 
 This package contains the Kuryr Kubernetes Python library.
 
@@ -84,9 +87,7 @@ Requires:       python-ddt >= 1.0.1
 Requires:       python-testtools >= 1.4.0
 
 %description -n python2-%{service}-tests
-Kuryr Kubernetes provides a Controller that watches the Kubernetes API for
-Object changes and manages Neutron resources to provide the Kubernetes Cluster
-with OpenStack networking.
+%{common_desc}
 
 This package contains the Kuryr Kubernetes tests.
 
@@ -113,9 +114,7 @@ Summary: Kuryr Kubernetes Controller
 Requires: openstack-%{service}-common = %{version}-%{release}
 
 %description controller
-Kuryr Kubernetes provides a Controller that watches the Kubernetes API for
-Object changes and manages Neutron resources to provide the Kubernetes Cluster
-with OpenStack networking.
+%{common_desc}
 
 This package contains the Kuryr Kubernetes Controller that watches the
 Kubernetes API and adds metadata to its Objects about the OpenStack resources
@@ -126,9 +125,7 @@ Summary: CNI plugin
 Requires: openstack-%{service}-common = %{version}-%{release}
 
 %description cni
-Kuryr Kubernetes provides a Controller that watches the Kubernetes API for
-Object changes and manages Neutron resources to provide the Kubernetes Cluster
-with OpenStack networking.
+%{common_desc}
 
 This package contains the Kuryr Kubernetes Container Network Interface driver
 that Kubelet calls to.
