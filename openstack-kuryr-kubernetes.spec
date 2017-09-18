@@ -4,13 +4,13 @@
 %global module kuryr_kubernetes
 
 Name:      openstack-%service
-Version:   XXX
-Release:   XXX
+Version:   0.2.0
+Release:   1%{?dist}
 Summary:   OpenStack networking integration with Kubernetes
 License:   ASL 2.0
 URL:       http://docs.openstack.org/developer/kuryr-kubernetes/
 
-Source0:   https://tarballs.openstack.org/%{project}/%{service}-%{upstream_version}.tar.gz
+Source0:   https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 Source1:   kuryr.logrotate
 Source2:   kuryr-controller.service
 Source3:   openstack-kuryr.tmpfs
@@ -147,6 +147,11 @@ rm -f test-requirements.txt
 # Kill egg-info in order to generate new SOURCES.txt
 rm -rf kuryr_kubernetes.egg-info
 
+# disable warning-is-error, doc build tries to download https://governance.openstack.org/badges/kuryr-kubernetes.svg
+# which is not posible in isolated environments as CBS for stable builds so we need
+# to disable warning-is-error
+sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
+
 %build
 %py2_build
 PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
@@ -230,3 +235,6 @@ exit 0
 %{_bindir}/kuryr-cni
 
 %changelog
+* Mon Sep 18 2017 Alfredo Moralejo <amoralej@redhat.com> 0.2.0-1
+- Update to 0.2.0
+
