@@ -4,8 +4,8 @@
 %global module kuryr_kubernetes
 
 Name:      openstack-%service
-Version:   XXX
-Release:   XXX
+Version:   0.2.0
+Release:   1%{?dist}
 Summary:   OpenStack networking integration with Kubernetes
 License:   ASL 2.0
 URL:       http://docs.openstack.org/developer/kuryr-kubernetes/
@@ -230,3 +230,6 @@ exit 0
 %{_bindir}/kuryr-cni
 
 %changelog
+* Mon Sep 18 2017 Alfredo Moralejo <amoralej@redhat.com> 0.2.0-1
+- Update to 0.2.0
+
