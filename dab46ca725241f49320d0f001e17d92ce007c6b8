@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba7be1f8_ee727b48",
+        "filename": "kuryr-cni.service",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-11-22T16:13:09Z",
+      "side": 1,
+      "message": "Does it requires to run as root?",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "dab46ca725241f49320d0f001e17d92ce007c6b8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
