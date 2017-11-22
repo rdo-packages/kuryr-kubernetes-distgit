@@ -52,8 +52,10 @@ BuildRequires:  python-oslo-log
 BuildRequires:  python-oslo-reports
 BuildRequires:  python-kuryr-lib
 BuildRequires:  python-os-vif
+BuildRequires:  python-cotyledon
 
 Requires:       python-%{project}-lib >= 0.5.0
+Requires:       python-cotyledon >= 1.3.0
 Requires:       python-pyroute2 >= 0.4.13
 Requires:       python-requests >= 2.10.0
 Requires:       python-eventlet >= 0.18.2
