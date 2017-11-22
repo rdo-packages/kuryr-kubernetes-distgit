@@ -19,6 +19,7 @@ Source0:   https://tarballs.openstack.org/%{project}/%{service}-%{upstream_versi
 Source1:   kuryr.logrotate
 Source2:   kuryr-controller.service
 Source3:   openstack-kuryr.tmpfs
+Source3:   kuryr-cni.service
 
 BuildArch: noarch
 
@@ -52,6 +53,9 @@ BuildRequires:  python-oslo-log
 BuildRequires:  python-oslo-reports
 BuildRequires:  python-kuryr-lib
 BuildRequires:  python-os-vif
+BuildRequires:  python-cotyledon
+BuildRequires:  python-flask
+BuildRequires:  python-retrying
 
 Requires:       python-%{project}-lib >= 0.5.0
 Requires:       python-pyroute2 >= 0.4.13
@@ -66,6 +70,9 @@ Requires:       python-oslo-utils >= 3.20.0
 Requires:       python-os-vif >= 1.7.0
 Requires:       python-six >= 1.9.0
 Requires:       python-stevedore >= 1.20.0
+Requires:       python-cotyledon >= 1.3.0
+Requires:       python-flask >= 0.10.0
+Requires:       python-retrying >= 1.2.3
 
 %description -n python2-%{service}
 %{common_desc}
@@ -169,6 +176,7 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/openstack
 
 # Install systemd units
 install -p -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}/kuryr-controller.service
+install -p -D -m 644 %{SOURCE4} %{buildroot}%{_unitdir}/kuryr-cni.service
 
 # Kuryr run directories
 install -p -D -m 644 %{SOURCE3} %{buildroot}%{_tmpfilesdir}/openstack-kuryr.conf
@@ -189,6 +197,15 @@ exit 0
 
 %postun controller
 %systemd_postun_with_restart kuryr-controller.service
+
+%post cni
+%systemd_post kuryr-cni.service
+
+%preun cni
+%systemd_preun kuryr-cni.service
+
+%postun cni
+%systemd_postun_with_restart kuryr-cni.service
 
 %files controller
 %license LICENSE
@@ -223,5 +240,7 @@ exit 0
 %files cni
 %license LICENSE
 %{_bindir}/kuryr-cni
+%{_bindir}/kuryr-daemon
+%{_unitdir}/kuryr-cni.service
 
 %changelog
