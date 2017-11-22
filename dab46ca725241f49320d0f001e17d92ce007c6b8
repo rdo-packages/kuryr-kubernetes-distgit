@@ -22,6 +22,23 @@
       "revId": "dab46ca725241f49320d0f001e17d92ce007c6b8",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba7be1f8_aecde35f",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-11-22T16:40:56Z",
+      "side": 1,
+      "message": "Please add %{?systemd_requires} here if the cni subpackage can be installed independently of the controller package.",
+      "revId": "dab46ca725241f49320d0f001e17d92ce007c6b8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
