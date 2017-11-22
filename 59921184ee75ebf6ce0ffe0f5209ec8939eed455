@@ -16,6 +16,24 @@
       "revId": "59921184ee75ebf6ce0ffe0f5209ec8939eed455",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba7be1f8_4eb467f2",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 245
+      },
+      "writtenOn": "2017-11-22T14:15:51Z",
+      "side": 1,
+      "message": "That\u0027s a very good question. In our usual deployments it is containerized and run by kubernetes. However, if you want it to run in the host, you would need a systemd unit indeed. Should we add it to this patch or as a follow-up?",
+      "parentUuid": "ba7be1f8_4edd4742",
+      "revId": "59921184ee75ebf6ce0ffe0f5209ec8939eed455",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
