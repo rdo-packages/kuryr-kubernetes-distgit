@@ -34,6 +34,24 @@
       "revId": "59921184ee75ebf6ce0ffe0f5209ec8939eed455",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba7be1f8_8ecd7f89",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-11-22T14:22:54Z",
+      "side": 1,
+      "message": "Let\u0027s add the systemd unit now, so everything will be contained in the patch.",
+      "parentUuid": "ba7be1f8_4eb467f2",
+      "revId": "59921184ee75ebf6ce0ffe0f5209ec8939eed455",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
