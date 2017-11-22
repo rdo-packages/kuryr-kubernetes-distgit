@@ -52,6 +52,9 @@ BuildRequires:  python-oslo-log
 BuildRequires:  python-oslo-reports
 BuildRequires:  python-kuryr-lib
 BuildRequires:  python-os-vif
+BuildRequires:  python-cotyledon
+BuildRequires:  python-flask
+BuildRequires:  python-retrying
 
 Requires:       python-%{project}-lib >= 0.5.0
 Requires:       python-pyroute2 >= 0.4.13
@@ -66,6 +69,9 @@ Requires:       python-oslo-utils >= 3.20.0
 Requires:       python-os-vif >= 1.7.0
 Requires:       python-six >= 1.9.0
 Requires:       python-stevedore >= 1.20.0
+Requires:       python-cotyledon >= 1.3.0
+Requires:       python-flask >= 0.10.0
+Requires:       python-retrying >= 1.2.3
 
 %description -n python2-%{service}
 %{common_desc}
