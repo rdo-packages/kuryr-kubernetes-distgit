@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba7be1f8_4e9f0704",
+        "filename": "kuryr-cni.service",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 245
+      },
+      "writtenOn": "2017-11-23T10:33:23Z",
+      "side": 1,
+      "message": "For now yes. It is the expectation that CNI runs as root as kubelet runs the cni executable as root. Now that we are splitting cni executable from cni daemon, in the future we can work on it not requiring root but just cap_net_admin",
+      "parentUuid": "ba7be1f8_ee727b48",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "dab46ca725241f49320d0f001e17d92ce007c6b8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba7be1f8_aecde35f",
         "filename": "openstack-kuryr-kubernetes.spec",
         "patchSetId": 7
@@ -36,6 +60,24 @@
       "writtenOn": "2017-11-22T16:40:56Z",
       "side": 1,
       "message": "Please add %{?systemd_requires} here if the cni subpackage can be installed independently of the controller package.",
+      "revId": "dab46ca725241f49320d0f001e17d92ce007c6b8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba7be1f8_6ea4cb57",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 245
+      },
+      "writtenOn": "2017-11-23T10:33:23Z",
+      "side": 1,
+      "message": "True! Thanks!",
+      "parentUuid": "ba7be1f8_aecde35f",
       "revId": "dab46ca725241f49320d0f001e17d92ce007c6b8",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
