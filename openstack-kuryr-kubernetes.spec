@@ -56,11 +56,13 @@ BuildRequires:  python-os-vif
 BuildRequires:  python-cotyledon
 BuildRequires:  python-flask
 BuildRequires:  python-retrying
+BuildRequires:  python-oslo-cache
 
 Requires:       python-%{project}-lib >= 0.5.0
 Requires:       python-pyroute2 >= 0.4.13
 Requires:       python-requests >= 2.10.0
 Requires:       python-eventlet >= 0.18.2
+Requires:       python-oslo-cache >= 1.26.0
 Requires:       python-oslo-config >= 2:4.0.0
 Requires:       python-oslo-log >= 3.30.0
 Requires:       python-oslo-reports >= 0.6.0
