@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa53dc9_485fce0e",
+        "filename": "kuryr-cni.Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 411
+      },
+      "writtenOn": "2018-02-02T10:43:37Z",
+      "side": 1,
+      "message": "note, this diverges from the way other openstack serivices\u0027 images are built. AFAIK, it is only accepted for OSP to have images built from RPMs.",
+      "revId": "02aa9c7ef2f7ce988975b16b8d0b5293653df2a4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
