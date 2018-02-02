@@ -163,9 +163,6 @@ PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr
 %install
 %py2_install
 
-%check
-%{__python2} setup.py test
-
 # Move config files to proper location
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}
 install -d -m 755 %{buildroot}%{_localstatedir}/log/%{project}
@@ -184,6 +181,13 @@ install -p -D -m 644 %{SOURCE4} %{buildroot}%{_unitdir}/kuryr-cni.service
 # Kuryr run directories
 install -p -D -m 644 %{SOURCE3} %{buildroot}%{_tmpfilesdir}/openstack-kuryr.conf
 install -d %{buildroot}%{_localstatedir}/run/kuryr
+
+# Kuryr cni_ds_init
+install -d -m 755 %{buildroot}%{_libexecdir}/%{project}
+install -p -D -m 755 cni_ds_init %{buildroot}%{_libexecdir}/%{project}/
+
+%check
+%{__python2} setup.py test
 
 %pre -n python2-%{service}
 getent group %{project} >/dev/null || groupadd -r %{project}
@@ -245,5 +249,7 @@ exit 0
 %{_bindir}/kuryr-cni
 %{_bindir}/kuryr-daemon
 %{_unitdir}/kuryr-cni.service
+%dir %attr(0750, %{project}) %{_libexecdir}/%{project}
+%{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
