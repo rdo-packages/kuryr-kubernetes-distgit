@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa53dc9_28048a7c",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2018-02-02T15:35:03Z",
+      "side": 1,
+      "message": "It is missing the group, so it should be \n\n%attr(0750, %{project}, %{project})\n\nBTW, does this directory permission need to be 750, or could it be 755?",
+      "range": {
+        "startLine": 252,
+        "startChar": 5,
+        "endLine": 252,
+        "endChar": 28
+      },
+      "revId": "9d4b41828beb608ebc9361291f5284874cfb7692",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
