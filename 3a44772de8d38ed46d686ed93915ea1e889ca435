@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa53dc9_5cf9cc4c",
+        "filename": "kuryr-controller.Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2018-02-07T11:51:04Z",
+      "side": 1,
+      "message": "please drop from here as these are internal links",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 178
+      },
+      "revId": "3a44772de8d38ed46d686ed93915ea1e889ca435",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
