@@ -1,0 +1,10 @@
+Code-Review+2: Javier Peña <jpena@redhat.com>
+Code-Review+1: Michał Dulko <michal.dulko@gmail.com>
+Code-Review+2: Luis Tomás <luis5tb@gmail.com>
+Workflow+1: Luis Tomás <luis5tb@gmail.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Mon, 12 Feb 2018 09:17:04 +0000
+Reviewed-on: https://review.rdoproject.org/r/11753
+Project: openstack/kuryr-kubernetes-distgit
+Branch: refs/heads/rpm-master
