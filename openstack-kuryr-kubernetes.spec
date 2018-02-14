@@ -35,44 +35,44 @@ Summary:        Kuryr Kubernetes libraries
 
 # debtcollector is a hidden dependency of oslo-config
 BuildRequires:  git
-BuildRequires:  python-debtcollector
+BuildRequires:  python2-debtcollector
 BuildRequires:  python2-devel
-BuildRequires:  python-hacking
+BuildRequires:  python2-hacking
 BuildRequires:  python-d2to1
-BuildRequires:  python-oslo-config
-BuildRequires:  python-pbr
-BuildRequires:  python-setuptools
+BuildRequires:  python2-oslo-config
+BuildRequires:  python2-pbr
+BuildRequires:  python2-setuptools
 BuildRequires:  systemd-units
-BuildRequires:  python-mock
-BuildRequires:  python-oslotest
-BuildRequires:  python-testrepository
-BuildRequires:  python-testscenarios
-BuildRequires:  python-ddt
-BuildRequires:  python-testtools
-BuildRequires:  python-oslo-log
-BuildRequires:  python-oslo-reports
-BuildRequires:  python-kuryr-lib
-BuildRequires:  python-os-vif
-BuildRequires:  python-cotyledon
+BuildRequires:  python2-mock
+BuildRequires:  python2-oslotest
+BuildRequires:  python2-testrepository
+BuildRequires:  python2-testscenarios
+BuildRequires:  python2-ddt
+BuildRequires:  python2-testtools
+BuildRequires:  python2-oslo-log
+BuildRequires:  python2-oslo-reports
+BuildRequires:  python2-kuryr-lib
+BuildRequires:  python2-os-vif
+BuildRequires:  python2-cotyledon
 BuildRequires:  python-flask
 BuildRequires:  python-retrying
-BuildRequires:  python-oslo-cache
+BuildRequires:  python2-oslo-cache
 
-Requires:       python-%{project}-lib >= 0.5.0
-Requires:       python-pyroute2 >= 0.4.13
-Requires:       python-requests >= 2.10.0
-Requires:       python-eventlet >= 0.18.2
-Requires:       python-oslo-cache >= 1.26.0
-Requires:       python-oslo-config >= 2:4.0.0
-Requires:       python-oslo-log >= 3.30.0
-Requires:       python-oslo-reports >= 0.6.0
-Requires:       python-oslo-serialization >= 1.10.0
-Requires:       python-oslo-service >= 1.10.0
-Requires:       python-oslo-utils >= 3.20.0
-Requires:       python-os-vif >= 1.7.0
-Requires:       python-six >= 1.9.0
-Requires:       python-stevedore >= 1.20.0
-Requires:       python-cotyledon >= 1.3.0
+Requires:       python2-%{project}-lib >= 0.5.0
+Requires:       python2-pyroute2 >= 0.4.21
+Requires:       python2-requests >= 2.14.2
+Requires:       python2-eventlet >= 0.18.2
+Requires:       python2-oslo-cache >= 1.26.0
+Requires:       python2-oslo-config >= 2:5.1.0
+Requires:       python2-oslo-log >= 3.36.0
+Requires:       python2-oslo-reports >= 1.18.0
+Requires:       python2-oslo-serialization >= 2.18.0
+Requires:       python2-oslo-service >= 1.24.0
+Requires:       python2-oslo-utils >= 3.33.0
+Requires:       python2-os-vif >= 1.7.0
+Requires:       python2-six >= 1.10.0
+Requires:       python2-stevedore >= 1.20.0
+Requires:       python2-cotyledon >= 1.3.0
 Requires:       python-flask >= 0.10.0
 Requires:       python-retrying >= 1.2.3
 
@@ -84,16 +84,16 @@ This package contains the Kuryr Kubernetes Python library.
 %package -n python2-%{service}-tests
 Summary:        Kuryr Kubernetes tests
 
-BuildRequires:  python-oslotest
-BuildRequires:  python-testtools
+BuildRequires:  python2-oslotest
+BuildRequires:  python2-testtools
 
 Requires:       python2-%{service} = %{version}-%{release}
-Requires:       python-mock >= 2.0
-Requires:       python-oslotest >= 1.10.0
-Requires:       python-testrepository >= 0.0.18
-Requires:       python-testscenarios >= 0.4
-Requires:       python-ddt >= 1.0.1
-Requires:       python-testtools >= 1.4.0
+Requires:       python2-mock >= 2.0
+Requires:       python2-oslotest >= 1.10.0
+Requires:       python2-testrepository >= 0.0.18
+Requires:       python2-testscenarios >= 0.4
+Requires:       python2-ddt >= 1.0.1
+Requires:       python2-testtools >= 1.4.0
 
 %description -n python2-%{service}-tests
 %{common_desc}
@@ -111,9 +111,9 @@ This package contains Kuryr files common to all services.
 %package doc
 Summary:    OpenStack Kuryr-Kubernetes documentation
 
-BuildRequires: python-sphinx
-BuildRequires: python-reno
-BuildRequires: python-openstackdocstheme
+BuildRequires: python2-sphinx
+BuildRequires: python2-reno
+BuildRequires: python2-openstackdocstheme
 
 %description doc
 This package contains Kuryr Kubernetes documentation.
