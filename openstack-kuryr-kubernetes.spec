@@ -9,13 +9,13 @@ Object changes and manages Neutron resources to provide the Kubernetes Cluster \
 with OpenStack networking.
 
 Name:      openstack-%service
-Version:   XXX
-Release:   XXX
+Version:   0.4.0
+Release:   1%{?dist}
 Summary:   OpenStack networking integration with Kubernetes
 License:   ASL 2.0
 URL:       http://docs.openstack.org/developer/kuryr-kubernetes/
 
-Source0:   https://tarballs.openstack.org/%{project}/%{service}-%{upstream_version}.tar.gz
+Source0:   https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 Source1:   kuryr.logrotate
 Source2:   kuryr-controller.service
 Source3:   openstack-kuryr.tmpfs
@@ -143,6 +143,10 @@ that Kubelet calls to.
 %prep
 %autosetup -n %{service}-%{upstream_version} -S git
 
+# kuryr-kubernetes tries to use external resources to build the documentation but
+# networking is disabled in CBS so we need to disable warning-is-error option.
+sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
+
 find %{module} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
 # Let's handle dependencies ourseleves
@@ -253,3 +257,6 @@ exit 0
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
+* Sat Feb 17 2018 RDO <dev@lists.rdoproject.org> 0.4.0-1
+- Update to 0.4.0
+
