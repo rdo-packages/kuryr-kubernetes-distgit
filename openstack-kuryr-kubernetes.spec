@@ -10,7 +10,7 @@ with OpenStack networking.
 
 Name:      openstack-%service
 Version:   0.4.0
-Release:   1%{?dist}
+Release:   2%{?dist}
 Summary:   OpenStack networking integration with Kubernetes
 License:   ASL 2.0
 URL:       http://docs.openstack.org/developer/kuryr-kubernetes/
@@ -253,10 +253,13 @@ exit 0
 %{_bindir}/kuryr-cni
 %{_bindir}/kuryr-daemon
 %{_unitdir}/kuryr-cni.service
-%dir %attr(0755, %{project}, %{project}) %{_libexecdir}/%{project}
+%dir %attr(0755, root, root) %{_libexecdir}/%{project}
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
+* Thu Feb 22 2018 amoralej <amoralej@redhat.com> 0.4.0-2
+- Change permisions for /usr/libexec/kuryr
+
 * Sat Feb 17 2018 RDO <dev@lists.rdoproject.org> 0.4.0-1
 - Update to 0.4.0
 
