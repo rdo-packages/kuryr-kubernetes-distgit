@@ -249,7 +249,7 @@ exit 0
 %{_bindir}/kuryr-cni
 %{_bindir}/kuryr-daemon
 %{_unitdir}/kuryr-cni.service
-%dir %attr(0755, %{project}, %{project}) %{_libexecdir}/%{project}
+%dir %attr(0755, root, root) %{_libexecdir}/%{project}
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
