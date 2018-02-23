@@ -9,8 +9,8 @@ Object changes and manages Neutron resources to provide the Kubernetes Cluster \
 with OpenStack networking.
 
 Name:      openstack-%service
-Version:   0.4.0
-Release:   2%{?dist}
+Version:   0.4.1
+Release:   1%{?dist}
 Summary:   OpenStack networking integration with Kubernetes
 License:   ASL 2.0
 URL:       http://docs.openstack.org/developer/kuryr-kubernetes/
@@ -257,6 +257,9 @@ exit 0
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
+* Fri Feb 23 2018 RDO <dev@lists.rdoproject.org> 0.4.1-1
+- Update to 0.4.1
+
 * Thu Feb 22 2018 amoralej <amoralej@redhat.com> 0.4.0-2
 - Change permisions for /usr/libexec/kuryr
 
