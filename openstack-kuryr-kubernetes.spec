@@ -143,6 +143,9 @@ that Kubelet calls to.
 %prep
 %autosetup -n %{service}-%{upstream_version} -S git
 
+# Do not treat documentation build warnings as errors
+sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
+
 find %{module} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
 # Let's handle dependencies ourseleves
