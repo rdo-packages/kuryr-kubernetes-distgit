@@ -151,6 +151,7 @@ find %{module} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 # Let's handle dependencies ourseleves
 rm -f requirements.txt
 rm -f test-requirements.txt
+rm -f doc/requirements.txt
 
 # Kill egg-info in order to generate new SOURCES.txt
 rm -rf kuryr_kubernetes.egg-info
@@ -159,9 +160,9 @@ rm -rf kuryr_kubernetes.egg-info
 %py2_build
 PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
 # generate html docs
-%{__python2} setup.py build_sphinx -b html
+sphinx-build -W -b html
 # generate man pages
-%{__python2} setup.py build_sphinx -b man
+sphinx-build -W -b man
 
 %install
 %py2_install
