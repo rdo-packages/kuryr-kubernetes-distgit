@@ -151,6 +151,7 @@ find %{module} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 # Let's handle dependencies ourseleves
 rm -f requirements.txt
 rm -f test-requirements.txt
+rm -f doc/requirements.txt
 
 # Kill egg-info in order to generate new SOURCES.txt
 rm -rf kuryr_kubernetes.egg-info
@@ -159,9 +160,9 @@ rm -rf kuryr_kubernetes.egg-info
 %py2_build
 PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
 # generate html docs
-%{__python2} setup.py build_sphinx -b html
+sphinx-build -W -b html doc/source doc/build/html
 # generate man pages
-%{__python2} setup.py build_sphinx -b man
+sphinx-build -W -b man doc/source doc/build/man
 
 %install
 %py2_install
@@ -237,9 +238,9 @@ exit 0
 %license LICENSE
 %doc README.rst
 %config(noreplace) %attr(0640, root, %{project}) %{_sysconfdir}/%{project}/%{project}.conf
-%dir %attr(0750, %{project}, %{project}) %{_sysconfdir}/%{project}
+%dir %attr(0755, %{project}, %{project}) %{_sysconfdir}/%{project}
 %config(noreplace) %{_sysconfdir}/logrotate.d/*
-%dir %attr(0750, %{project}, %{project}) %{_localstatedir}/log/%{project}
+%dir %attr(0755, %{project}, %{project}) %{_localstatedir}/log/%{project}
 %{_tmpfilesdir}/openstack-kuryr.conf
 %dir %attr(0755, %{project}, %{project}) %{_localstatedir}/run/kuryr
 
