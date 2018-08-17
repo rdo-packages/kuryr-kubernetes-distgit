@@ -59,11 +59,11 @@ BuildRequires:  python-retrying
 BuildRequires:  python2-oslo-cache
 
 Requires:       python2-%{project}-lib >= 0.5.0
-Requires:       python2-pyroute2 >= 0.4.21
+Requires:       python2-pyroute2 >= 0.5.1
 Requires:       python2-requests >= 2.14.2
 Requires:       python2-eventlet >= 0.18.2
 Requires:       python2-oslo-cache >= 1.26.0
-Requires:       python2-oslo-config >= 2:5.1.0
+Requires:       python2-oslo-config >= 2:5.2.0
 Requires:       python2-oslo-log >= 3.36.0
 Requires:       python2-oslo-reports >= 1.18.0
 Requires:       python2-oslo-serialization >= 2.18.0
