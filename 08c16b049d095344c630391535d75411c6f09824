@@ -1,0 +1,8 @@
+Code-Review+2: Yatin Karel <ykarel@redhat.com>
+Workflow+1: Yatin Karel <ykarel@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 12 Sep 2018 11:50:48 +0000
+Reviewed-on: https://review.rdoproject.org/r/16225
+Project: openstack/kuryr-kubernetes-distgit
+Branch: refs/heads/queens-rdo
