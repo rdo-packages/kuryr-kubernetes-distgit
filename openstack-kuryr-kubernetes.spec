@@ -1,3 +1,14 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
+%endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global project kuryr
 %global service kuryr-kubernetes
@@ -29,73 +40,86 @@ Requires(pre): shadow-utils
 %description
 Kuryr-Kubernetes brings OpenStack networking to Kubernetes clusters
 
-%package -n python2-%{service}
+%package -n python%{pyver}-%{service}
 Summary:        Kuryr Kubernetes libraries
 %{?python_provide:%python_provide python2-%{service}}
 
 # debtcollector is a hidden dependency of oslo-config
 BuildRequires:  git
-BuildRequires:  python2-debtcollector
-BuildRequires:  python2-devel
-BuildRequires:  python2-hacking
-BuildRequires:  python-d2to1
-BuildRequires:  python2-oslo-config
-BuildRequires:  python2-pbr
-BuildRequires:  python2-setuptools
+BuildRequires:  python%{pyver}-debtcollector
+BuildRequires:  python%{pyver}-devel
+BuildRequires:  python%{pyver}-hacking
+BuildRequires:  python%{pyver}-oslo-config
+BuildRequires:  python%{pyver}-pbr
+BuildRequires:  python%{pyver}-setuptools
 BuildRequires:  systemd-units
-BuildRequires:  python2-mock
-BuildRequires:  python2-oslotest
-BuildRequires:  python2-testrepository
-BuildRequires:  python2-testscenarios
-BuildRequires:  python2-ddt
-BuildRequires:  python2-testtools
-BuildRequires:  python2-oslo-log
-BuildRequires:  python2-oslo-reports
-BuildRequires:  python2-kuryr-lib
-BuildRequires:  python2-os-vif
-BuildRequires:  python2-cotyledon
-BuildRequires:  python-flask
+BuildRequires:  python%{pyver}-mock
+BuildRequires:  python%{pyver}-oslotest
+BuildRequires:  python%{pyver}-testrepository
+BuildRequires:  python%{pyver}-testscenarios
+BuildRequires:  python%{pyver}-ddt
+BuildRequires:  python%{pyver}-testtools
+BuildRequires:  python%{pyver}-oslo-log
+BuildRequires:  python%{pyver}-oslo-reports
+BuildRequires:  python%{pyver}-kuryr-lib
+BuildRequires:  python%{pyver}-os-vif
+BuildRequires:  python%{pyver}-cotyledon
+BuildRequires:  python%{pyver}-flask
+BuildRequires:  python%{pyver}-oslo-cache
+
+# Handle python2 exception
+%if %{pyver} == 2
+BuildRequires:  python-d2to1
 BuildRequires:  python-retrying
-BuildRequires:  python2-oslo-cache
+%else
+BuildRequires:  python%{pyver}-d2to1
+BuildRequires:  python%{pyver}-retrying
+%endif
 
-Requires:       python2-%{project}-lib >= 0.5.0
-Requires:       python2-pyroute2 >= 0.4.21
-Requires:       python2-requests >= 2.14.2
-Requires:       python2-eventlet >= 0.18.2
-Requires:       python2-oslo-cache >= 1.26.0
-Requires:       python2-oslo-config >= 2:5.2.0
-Requires:       python2-oslo-log >= 3.36.0
-Requires:       python2-oslo-reports >= 1.18.0
-Requires:       python2-oslo-serialization >= 2.18.0
-Requires:       python2-oslo-service >= 1.24.0
-Requires:       python2-oslo-utils >= 3.33.0
-Requires:       python2-os-vif >= 1.7.0
-Requires:       python2-six >= 1.10.0
-Requires:       python2-stevedore >= 1.20.0
-Requires:       python2-cotyledon >= 1.3.0
-Requires:       python-flask >= 0.10.0
+Requires:       python%{pyver}-%{project}-lib >= 0.5.0
+Requires:       python%{pyver}-pyroute2 >= 0.4.21
+Requires:       python%{pyver}-requests >= 2.14.2
+Requires:       python%{pyver}-eventlet >= 0.18.2
+Requires:       python%{pyver}-oslo-cache >= 1.26.0
+Requires:       python%{pyver}-oslo-config >= 2:5.2.0
+Requires:       python%{pyver}-oslo-log >= 3.36.0
+Requires:       python%{pyver}-oslo-reports >= 1.18.0
+Requires:       python%{pyver}-oslo-serialization >= 2.18.0
+Requires:       python%{pyver}-oslo-service >= 1.24.0
+Requires:       python%{pyver}-oslo-utils >= 3.33.0
+Requires:       python%{pyver}-os-vif >= 1.7.0
+Requires:       python%{pyver}-six >= 1.10.0
+Requires:       python%{pyver}-stevedore >= 1.20.0
+Requires:       python%{pyver}-cotyledon >= 1.3.0
+Requires:       python%{pyver}-flask >= 0.10.0
+
+# Handle python2 exception
+%if %{pyver} == 2
 Requires:       python-retrying >= 1.2.3
+%else
+Requires:       python%{pyver}-retrying >= 1.2.3
+%endif
 
-%description -n python2-%{service}
+%description -n python%{pyver}-%{service}
 %{common_desc}
 
 This package contains the Kuryr Kubernetes Python library.
 
-%package -n python2-%{service}-tests
+%package -n python%{pyver}-%{service}-tests
 Summary:        Kuryr Kubernetes tests
 
-BuildRequires:  python2-oslotest
-BuildRequires:  python2-testtools
+BuildRequires:  python%{pyver}-oslotest
+BuildRequires:  python%{pyver}-testtools
 
-Requires:       python2-%{service} = %{version}-%{release}
-Requires:       python2-mock >= 2.0
-Requires:       python2-oslotest >= 1.10.0
-Requires:       python2-testrepository >= 0.0.18
-Requires:       python2-testscenarios >= 0.4
-Requires:       python2-ddt >= 1.0.1
-Requires:       python2-testtools >= 1.4.0
+Requires:       python%{pyver}-%{service} = %{version}-%{release}
+Requires:       python%{pyver}-mock >= 2.0
+Requires:       python%{pyver}-oslotest >= 1.10.0
+Requires:       python%{pyver}-testrepository >= 0.0.18
+Requires:       python%{pyver}-testscenarios >= 0.4
+Requires:       python%{pyver}-ddt >= 1.0.1
+Requires:       python%{pyver}-testtools >= 1.4.0
 
-%description -n python2-%{service}-tests
+%description -n python%{pyver}-%{service}-tests
 %{common_desc}
 
 This package contains the Kuryr Kubernetes tests.
@@ -103,7 +127,7 @@ This package contains the Kuryr Kubernetes tests.
 %package common
 Summary:        Kuryr Kubernetes common files
 Group:          Applications/System
-Requires:   python2-%{service} = %{version}-%{release}
+Requires:   python%{pyver}-%{service} = %{version}-%{release}
 
 %description common
 This package contains Kuryr files common to all services.
@@ -111,9 +135,9 @@ This package contains Kuryr files common to all services.
 %package doc
 Summary:    OpenStack Kuryr-Kubernetes documentation
 
-BuildRequires: python2-sphinx
-BuildRequires: python2-reno
-BuildRequires: python2-openstackdocstheme
+BuildRequires: python%{pyver}-sphinx
+BuildRequires: python%{pyver}-reno
+BuildRequires: python%{pyver}-openstackdocstheme
 
 %description doc
 This package contains Kuryr Kubernetes documentation.
@@ -157,15 +181,15 @@ rm -f doc/requirements.txt
 rm -rf kuryr_kubernetes.egg-info
 
 %build
-%py2_build
-PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
+%{pyver_build}
+PYTHONPATH=. oslo-config-generator-%{pyver} --config-file=etc/oslo-config-generator/kuryr.conf
 # generate html docs
-sphinx-build -W -b html doc/source doc/build/html
+sphinx-build-%{pyver} -W -b html doc/source doc/build/html
 # generate man pages
-sphinx-build -W -b man doc/source doc/build/man
+sphinx-build-%{pyver} -W -b man doc/source doc/build/man
 
 %install
-%py2_install
+%{pyver_install}
 
 # Move config files to proper location
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}
@@ -191,9 +215,9 @@ install -d -m 755 %{buildroot}%{_libexecdir}/%{project}
 install -p -D -m 755 cni_ds_init %{buildroot}%{_libexecdir}/%{project}/
 
 %check
-%{__python2} setup.py test
+%{pyver_bin} setup.py test
 
-%pre -n python2-%{service}
+%pre -n python%{pyver}-%{service}
 getent group %{project} >/dev/null || groupadd -r %{project}
 getent passwd %{project} >/dev/null || \
     useradd -r -g %{project} -d %{_sharedstatedir}/%{project} -s /sbin/nologin \
@@ -224,15 +248,15 @@ exit 0
 %{_unitdir}/kuryr-controller.service
 %{_mandir}/man1/kuryr*
 
-%files -n python2-%{service}-tests
+%files -n python%{pyver}-%{service}-tests
 %license LICENSE
-%{python2_sitelib}/%{module}/tests
+%{pyver_sitelib}/%{module}/tests
 
-%files -n python2-%{service}
+%files -n python%{pyver}-%{service}
 %license LICENSE
-%{python2_sitelib}/%{module}
-%{python2_sitelib}/%{module}-*.egg-info
-%exclude %{python2_sitelib}/%{module}/tests
+%{pyver_sitelib}/%{module}
+%{pyver_sitelib}/%{module}-*.egg-info
+%exclude %{pyver_sitelib}/%{module}/tests
 
 %files common
 %license LICENSE
