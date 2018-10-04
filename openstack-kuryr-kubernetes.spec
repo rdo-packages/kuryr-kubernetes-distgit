@@ -88,6 +88,7 @@ Requires:       python%{pyver}-oslo-serialization >= 2.18.0
 Requires:       python%{pyver}-oslo-service >= 1.24.0
 Requires:       python%{pyver}-oslo-utils >= 3.33.0
 Requires:       python%{pyver}-os-vif >= 1.7.0
+Requires:       python%{pyver}-prettytable >= 0.7.2
 Requires:       python%{pyver}-six >= 1.10.0
 Requires:       python%{pyver}-stevedore >= 1.20.0
 Requires:       python%{pyver}-cotyledon >= 1.3.0
@@ -245,6 +246,7 @@ exit 0
 %files controller
 %license LICENSE
 %{_bindir}/kuryr-k8s-controller
+%{_bindir}/kuryr-status
 %{_unitdir}/kuryr-controller.service
 %{_mandir}/man1/kuryr*
 
@@ -281,3 +283,4 @@ exit 0
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/kuryr-kubernetes/commit/?id=09e4a552228b502cd4be91babfb353197b6f900c
