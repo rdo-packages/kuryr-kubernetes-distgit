@@ -1,0 +1,9 @@
+Code-Review+2: Daniel Mellado <dmellado@redhat.com>
+Code-Review+2: Luis Tomas Bolivar <luis5tb@gmail.com>
+Workflow+1: Luis Tomas Bolivar <luis5tb@gmail.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 21 Nov 2018 13:23:34 +0000
+Reviewed-on: https://review.rdoproject.org/r/17398
+Project: openstack/kuryr-kubernetes-distgit
+Branch: refs/heads/rpm-master
