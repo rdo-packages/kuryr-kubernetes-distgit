@@ -246,7 +246,7 @@ exit 0
 %files controller
 %license LICENSE
 %{_bindir}/kuryr-k8s-controller
-%{_bindir}/kuryr-status
+%{_bindir}/kuryr-k8s-status
 %{_unitdir}/kuryr-controller.service
 %{_mandir}/man1/kuryr*
 
