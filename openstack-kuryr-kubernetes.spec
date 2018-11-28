@@ -35,7 +35,7 @@ Source4:   kuryr-cni.service
 BuildArch: noarch
 
 Requires(pre): shadow-utils
-%{?systemd_requires}
+%{?systemd_ordering}
 
 %description
 Kuryr-Kubernetes brings OpenStack networking to Kubernetes clusters
@@ -157,7 +157,7 @@ it obtains.
 %package cni
 Summary: CNI plugin
 Requires: openstack-%{service}-common = %{version}-%{release}
-%{?systemd_requires}
+%{?systemd_ordering}
 
 %description cni
 %{common_desc}
