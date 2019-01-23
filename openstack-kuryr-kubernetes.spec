@@ -9,7 +9,7 @@ Object changes and manages Neutron resources to provide the Kubernetes Cluster \
 with OpenStack networking.
 
 Name:      openstack-%service
-Version:   0.5.2
+Version:   0.5.3
 Release:   1%{?dist}
 Summary:   OpenStack networking integration with Kubernetes
 License:   ASL 2.0
@@ -257,6 +257,9 @@ exit 0
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
+* Wed Jan 23 2019 RDO <dev@lists.rdoproject.org> 0.5.3-1
+- Update to 0.5.3
+
 * Fri Nov 23 2018 RDO <dev@lists.rdoproject.org> 0.5.2-1
 - Update to 0.5.2
 
