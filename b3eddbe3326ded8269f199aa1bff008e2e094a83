@@ -1,0 +1,9 @@
+Code-Review+2: hguemar <hguemar@fedoraproject.org>
+Code-Review+2: Antoni Segura Puimedon <asegurap@redhat.com>
+Workflow+1: Antoni Segura Puimedon <asegurap@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 23 Jan 2019 11:55:09 +0000
+Reviewed-on: https://review.rdoproject.org/r/17555
+Project: openstack/kuryr-kubernetes-distgit
+Branch: refs/heads/rpm-master
