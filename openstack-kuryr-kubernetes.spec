@@ -13,6 +13,7 @@
 %global project kuryr
 %global service kuryr-kubernetes
 %global module kuryr_kubernetes
+%global with_doc 1
 
 %global common_desc \
 Kuryr Kubernetes provides a Controller that watches the Kubernetes API for \
@@ -137,6 +138,7 @@ Requires:   python%{pyver}-%{service} = %{version}-%{release}
 %description common
 This package contains Kuryr files common to all services.
 
+%if 0%{?with_doc}
 %package doc
 Summary:    OpenStack Kuryr-Kubernetes documentation
 
@@ -146,6 +148,7 @@ BuildRequires: python%{pyver}-openstackdocstheme
 
 %description doc
 This package contains Kuryr Kubernetes documentation.
+%endif
 
 %package controller
 Summary: Kuryr Kubernetes Controller
@@ -192,10 +195,12 @@ rm -rf kuryr_kubernetes.egg-info
 %build
 %{pyver_build}
 PYTHONPATH=. oslo-config-generator-%{pyver} --config-file=etc/oslo-config-generator/kuryr.conf
+%if 0%{?with_doc}
 # generate html docs
 sphinx-build-%{pyver} -W -b html doc/source doc/build/html
 # generate man pages
 sphinx-build-%{pyver} -W -b man doc/source doc/build/man
+%endif
 
 %install
 %{pyver_install}
@@ -205,8 +210,10 @@ install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}
 install -d -m 755 %{buildroot}%{_localstatedir}/log/%{project}
 install -p -D -m 640 etc/kuryr.conf.sample  %{buildroot}%{_sysconfdir}/kuryr/kuryr.conf
 
+%if 0%{?with_doc}
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 doc/build/man/*.1 %{buildroot}%{_mandir}/man1/
+%endif
 
 # Install logrotate
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/openstack-%{service}
@@ -256,7 +263,9 @@ exit 0
 %{_bindir}/kuryr-k8s-controller
 %{_bindir}/kuryr-k8s-status
 %{_unitdir}/kuryr-controller.service
+%if 0%{?with_doc}
 %{_mandir}/man1/kuryr*
+%endif
 
 %files -n python%{pyver}-%{service}-tests
 %license LICENSE
@@ -278,9 +287,11 @@ exit 0
 %{_tmpfilesdir}/openstack-kuryr.conf
 %dir %attr(0755, %{project}, %{project}) %{_localstatedir}/run/kuryr
 
+%if 0%{?with_doc}
 %files doc
 %license LICENSE
 %doc doc/build/html README.rst
+%endif
 
 %files cni
 %license LICENSE
