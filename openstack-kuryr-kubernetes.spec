@@ -36,11 +36,7 @@ Source4:   kuryr-cni.service
 BuildArch: noarch
 
 Requires(pre): shadow-utils
-%if 0%{?rhel} && 0%{?rhel} < 8
 %{?systemd_requires}
-%else
-%{?systemd_ordering} # does not exist on EL7
-%endif
 
 %description
 Kuryr-Kubernetes brings OpenStack networking to Kubernetes clusters
@@ -164,11 +160,7 @@ it obtains.
 %package cni
 Summary: CNI plugin
 Requires: openstack-%{service}-common = %{version}-%{release}
-%if 0%{?rhel} && 0%{?rhel} < 8
 %{?systemd_requires}
-%else
-%{?systemd_ordering} # does not exist on EL7
-%endif
 
 %description cni
 %{common_desc}
