@@ -78,7 +78,7 @@ BuildRequires:  python%{pyver}-retrying
 %endif
 
 Requires:       python%{pyver}-%{project}-lib >= 0.5.0
-Requires:       python%{pyver}-pyroute2 >= 0.4.21
+Requires:       python%{pyver}-pyroute2 >= 0.5.1
 Requires:       python%{pyver}-requests >= 2.14.2
 Requires:       python%{pyver}-eventlet >= 0.18.2
 Requires:       python%{pyver}-oslo-cache >= 1.26.0
@@ -93,7 +93,7 @@ Requires:       python%{pyver}-prettytable >= 0.7.2
 Requires:       python%{pyver}-six >= 1.10.0
 Requires:       python%{pyver}-stevedore >= 1.20.0
 Requires:       python%{pyver}-cotyledon >= 1.3.0
-Requires:       python%{pyver}-flask >= 0.10.0
+Requires:       python%{pyver}-flask >= 0.12.3
 
 # Handle python2 exception
 %if %{pyver} == 2
