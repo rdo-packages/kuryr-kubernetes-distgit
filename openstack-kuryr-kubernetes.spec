@@ -27,7 +27,7 @@ Summary:   OpenStack networking integration with Kubernetes
 License:   ASL 2.0
 URL:       http://docs.openstack.org/developer/kuryr-kubernetes/
 
-Source0:   https://tarballs.openstack.org/%{project}/%{service}-%{upstream_version}.tar.gz
+Source0:   https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 Source1:   kuryr.logrotate
 Source2:   kuryr-controller.service
 Source3:   openstack-kuryr.tmpfs
