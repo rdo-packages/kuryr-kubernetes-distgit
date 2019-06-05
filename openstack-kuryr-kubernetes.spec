@@ -94,6 +94,8 @@ Requires:       python%{pyver}-six >= 1.10.0
 Requires:       python%{pyver}-stevedore >= 1.20.0
 Requires:       python%{pyver}-cotyledon >= 1.3.0
 Requires:       python%{pyver}-flask >= 0.12.3
+Requires:       python%{pyver}-grpcio >= 1.12.0
+Requires:       python%{pyver}-protobuf >= 3.6.0
 
 # Handle python2 exception
 %if %{pyver} == 2
