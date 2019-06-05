@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67658803_3a040af9",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2019-06-05T16:25:42Z",
+      "side": 1,
+      "message": "You also need to add them as BuildRequires to be installed in the build environment when running oslo-config-generator, building docs and running unit tests.",
+      "revId": "5735dd752e6e6d2055b7a9407bb78e980bd15a4e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
