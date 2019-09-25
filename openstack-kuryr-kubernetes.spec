@@ -69,6 +69,9 @@ BuildRequires:  python%{pyver}-flask
 BuildRequires:  python%{pyver}-oslo-cache
 BuildRequires:  python%{pyver}-grpcio
 BuildRequires:  python%{pyver}-protobuf
+BuildRequires:  python%{pyver}-netaddr
+BuildRequires:  python%{pyver}-openstacksdk
+BuildRequires:  python%{pyver}-pbr
 
 # Handle python2 exception
 %if %{pyver} == 2
@@ -80,7 +83,7 @@ BuildRequires:  python%{pyver}-retrying
 %endif
 
 Requires:       python%{pyver}-%{project}-lib >= 0.5.0
-Requires:       python%{pyver}-pyroute2 >= 0.5.1
+Requires:       python%{pyver}-pyroute2 >= 0.5.3
 Requires:       python%{pyver}-requests >= 2.14.2
 Requires:       python%{pyver}-eventlet >= 0.18.2
 Requires:       python%{pyver}-oslo-cache >= 1.26.0
@@ -94,10 +97,13 @@ Requires:       python%{pyver}-os-vif >= 1.7.0
 Requires:       python%{pyver}-prettytable >= 0.7.2
 Requires:       python%{pyver}-six >= 1.10.0
 Requires:       python%{pyver}-stevedore >= 1.20.0
-Requires:       python%{pyver}-cotyledon >= 1.3.0
+Requires:       python%{pyver}-cotyledon >= 1.5.0
 Requires:       python%{pyver}-flask >= 0.12.3
 Requires:       python%{pyver}-grpcio >= 1.12.0
 Requires:       python%{pyver}-protobuf >= 3.6.0
+Requires:       python%{pyver}-netaddr >= 0.7.19
+Requires:       python%{pyver}-openstacksdk >= 0.13.0
+Requires:       python%{pyver}-pbr >= 2.0.0
 
 # Handle python2 exception
 %if %{pyver} == 2
