@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dafa7c2_b2144a37",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2019-09-25T10:17:07Z",
+      "side": 1,
+      "message": "Duplicated with line 54",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "e6d903825980f7b0193b57f61e41fd1e17bafeab",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
