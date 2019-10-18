@@ -74,10 +74,8 @@ BuildRequires:  python%{pyver}-openstacksdk
 
 # Handle python2 exception
 %if %{pyver} == 2
-BuildRequires:  python-d2to1
 BuildRequires:  python-retrying
 %else
-BuildRequires:  python%{pyver}-d2to1
 BuildRequires:  python%{pyver}-retrying
 %endif
 
