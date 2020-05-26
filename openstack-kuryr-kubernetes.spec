@@ -60,6 +60,7 @@ BuildRequires:  python3-grpcio
 BuildRequires:  python3-protobuf
 BuildRequires:  python3-netaddr
 BuildRequires:  python3-openstacksdk
+BuildRequires:  python3-stestr
 
 BuildRequires:  python3-retrying
 
@@ -105,6 +106,7 @@ Requires:       python3-testrepository >= 0.0.18
 Requires:       python3-testscenarios >= 0.4
 Requires:       python3-ddt >= 1.0.1
 Requires:       python3-testtools >= 1.4.0
+Requires:       python3-stestr
 
 %description -n python3-%{service}-tests
 %{common_desc}
@@ -208,7 +210,8 @@ install -d -m 755 %{buildroot}%{_libexecdir}/%{project}
 install -p -D -m 755 cni_ds_init %{buildroot}%{_libexecdir}/%{project}/
 
 %check
-%{__python3} setup.py test
+export OS_TEST_PATH='./kuryr_kubernetes/tests'
+PYTHON=%{__python3} stestr --test-path $OS_TEST_PATH run
 
 %pre -n python3-%{service}
 getent group %{project} >/dev/null || groupadd -r %{project}
