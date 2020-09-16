@@ -65,7 +65,7 @@ BuildRequires:  python3-stestr
 BuildRequires:  python3-retrying
 
 Requires:       python3-%{project}-lib >= 0.5.0
-Requires:       python3-pyroute2 >= 0.5.6
+Requires:       python3-pyroute2 >= 0.5.7
 Requires:       python3-requests >= 2.18.0
 Requires:       python3-eventlet >= 0.22.0
 Requires:       python3-oslo-cache >= 1.26.0
@@ -73,8 +73,8 @@ Requires:       python3-oslo-config >= 2:6.1.0
 Requires:       python3-oslo-log >= 3.36.0
 Requires:       python3-oslo-reports >= 1.18.0
 Requires:       python3-oslo-serialization >= 2.18.0
-Requires:       python3-oslo-service >= 1.24.0
-Requires:       python3-oslo-utils >= 3.33.0
+Requires:       python3-oslo-service >= 1.40.2
+Requires:       python3-oslo-utils >= 3.40.2
 Requires:       python3-os-vif >= 1.12.0
 Requires:       python3-prettytable >= 0.7.2
 Requires:       python3-stevedore >= 1.20.0
