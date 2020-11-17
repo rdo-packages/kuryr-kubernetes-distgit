@@ -48,7 +48,7 @@ Summary:        Kuryr Kubernetes libraries
 %{?python_provide:%python_provide python2-%{service}}
 
 # debtcollector is a hidden dependency of oslo-config
-BuildRequires:  git
+BuildRequires:  git-core
 BuildRequires:  python3-debtcollector
 BuildRequires:  python3-devel
 BuildRequires:  python3-hacking
