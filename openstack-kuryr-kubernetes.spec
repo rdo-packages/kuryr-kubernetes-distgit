@@ -21,7 +21,7 @@ Object changes and manages Neutron resources to provide the Kubernetes Cluster \
 with OpenStack networking.
 
 Name:      openstack-%service
-Version:   1.1.0
+Version:   1.1.2
 Release:   1%{?dist}
 Summary:   OpenStack networking integration with Kubernetes
 License:   ASL 2.0
@@ -68,7 +68,7 @@ BuildRequires:  python%{pyver}-cotyledon
 BuildRequires:  python%{pyver}-flask
 BuildRequires:  python%{pyver}-oslo-cache
 BuildRequires:  python%{pyver}-grpcio
-BuildRequires:  python%{pyver}-protobuf
+BuildRequires:  python%{pyver}-protobuf >= 3.6.0
 BuildRequires:  python%{pyver}-netaddr
 BuildRequires:  python%{pyver}-openstacksdk
 
@@ -301,6 +301,9 @@ exit 0
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
+* Thu Feb 04 2021 RDO <dev@lists.rdoproject.org> 1.1.2-1
+- Update to 1.1.2
+
 * Wed Oct 16 2019 RDO <dev@lists.rdoproject.org> 1.1.0-1
 - Update to 1.1.0
 
