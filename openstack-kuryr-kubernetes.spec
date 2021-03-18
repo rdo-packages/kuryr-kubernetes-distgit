@@ -79,7 +79,7 @@ BuildRequires:  python3-retrying
 
 Requires:       python3-%{project}-lib >= 0.5.0
 Requires:       python3-pyroute2 >= 0.5.7
-Requires:       python3-requests >= 2.18.0
+Requires:       python3-requests >= 2.18.4
 Requires:       python3-eventlet >= 0.22.0
 Requires:       python3-oslo-cache >= 1.26.0
 Requires:       python3-oslo-config >= 2:6.1.0
