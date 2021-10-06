@@ -258,6 +258,7 @@ exit 0
 %files controller
 %license LICENSE
 %{_bindir}/kuryr-k8s-controller
+%{_bindir}/kuryr-k8s-sanity
 %{_bindir}/kuryr-k8s-status
 %{_unitdir}/kuryr-controller.service
 %if 0%{?with_doc}
