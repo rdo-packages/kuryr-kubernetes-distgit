@@ -69,8 +69,6 @@ BuildRequires:  python3-os-vif
 BuildRequires:  python3-cotyledon
 BuildRequires:  python3-flask
 BuildRequires:  python3-oslo-cache
-BuildRequires:  python3-grpcio
-BuildRequires:  python3-protobuf
 BuildRequires:  python3-netaddr
 BuildRequires:  python3-openstacksdk
 BuildRequires:  python3-stestr
@@ -92,11 +90,9 @@ Requires:       python3-os-vif >= 1.12.0
 Requires:       python3-prettytable >= 0.7.2
 Requires:       python3-stevedore >= 1.20.0
 Requires:       python3-cotyledon >= 1.7.3
-Requires:       python3-flask >= 1:0.12.3
-Requires:       python3-grpcio >= 1.25.0
-Requires:       python3-protobuf >= 3.6.0
+Requires:       python3-flask >= 1:2.0.1
 Requires:       python3-netaddr >= 0.7.19
-Requires:       python3-openstacksdk >= 0.36.0
+Requires:       python3-openstacksdk >= 0.59.0
 Requires:       python3-pbr >= 2.0.0
 
 Requires:       python3-retrying >= 1.2.3
