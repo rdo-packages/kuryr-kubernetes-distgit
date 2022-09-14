@@ -22,6 +22,30 @@
       },
       "revId": "9274be6b47d405d4134ca6eab84f4c91f75d593c",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cd17ef3_85527b8d",
+        "filename": "openstack-kuryr-kubernetes.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-09-14T07:46:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b87e8697_8ae4ce4f",
+      "range": {
+        "startLine": 93,
+        "startChar": 35,
+        "endLine": 93,
+        "endChar": 41
+      },
+      "revId": "9274be6b47d405d4134ca6eab84f4c91f75d593c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
