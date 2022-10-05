@@ -1,4 +1,3 @@
-%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -14,14 +13,12 @@ with OpenStack networking.
 
 Name:      openstack-%service
 Version:   7.0.0
-Release:   0.1%{?milestone}%{?dist}
+Release:   1%{?dist}
 Summary:   OpenStack networking integration with Kubernetes
 License:   ASL 2.0
 URL:       http://docs.openstack.org/developer/kuryr-kubernetes/
 
 Source0:   https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
-#
-# patches_base=7.0.0.0rc1
 #
 
 Source1:   kuryr.logrotate
@@ -301,6 +298,9 @@ exit 0
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
+* Wed Oct 05 2022 RDO <dev@lists.rdoproject.org> 7.0.0-1
+- Update to 7.0.0
+
 * Fri Sep 16 2022 RDO <dev@lists.rdoproject.org> 7.0.0-0.1.0rc1
 - Update to 7.0.0.0rc1
 
