@@ -96,6 +96,7 @@ Requires:       python3-openstacksdk >= 0.59.0
 Requires:       python3-pbr >= 2.0.0
 
 Requires:       python3-retrying >= 1.2.3
+Requires:       python3-prometheus-client >= 0.6.0
 
 %description -n python3-%{service}
 %{common_desc}
