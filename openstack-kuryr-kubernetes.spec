@@ -1,4 +1,3 @@
-%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0xa7475c5f2122fec3f90343223fe3bf5aad1080e4
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -14,14 +13,12 @@ with OpenStack networking.
 
 Name:      openstack-%service
 Version:   8.0.0
-Release:   0.1%{?milestone}%{?dist}
+Release:   1%{?dist}
 Summary:   OpenStack networking integration with Kubernetes
 License:   ASL 2.0
 URL:       http://docs.openstack.org/developer/kuryr-kubernetes/
 
 Source0:   https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
-#
-# patches_base=8.0.0.0rc1
 #
 
 Source1:   kuryr.logrotate
@@ -302,6 +299,9 @@ exit 0
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
+* Fri Mar 31 2023 RDO <dev@lists.rdoproject.org> 8.0.0-1
+- Update to 8.0.0
+
 * Tue Mar 14 2023 RDO <dev@lists.rdoproject.org> 8.0.0-0.1.0rc1
 - Update to 8.0.0.0rc1
 
