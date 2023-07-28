@@ -1,6 +1,12 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
+# Exclude sphinx from BRs if docs are disabled
+%if ! 0%{?with_doc}
+%global excluded_brs %{excluded_brs} sphinx openstackdocstheme
+%endif
 %global project kuryr
 %global service kuryr-kubernetes
 %global module kuryr_kubernetes
@@ -15,7 +21,7 @@ Name:      openstack-%service
 Version:   XXX
 Release:   XXX
 Summary:   OpenStack networking integration with Kubernetes
-License:   ASL 2.0
+License:   Apache-2.0
 URL:       http://docs.openstack.org/developer/kuryr-kubernetes/
 
 Source0:   https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
@@ -45,59 +51,11 @@ Kuryr-Kubernetes brings OpenStack networking to Kubernetes clusters
 
 %package -n python3-%{service}
 Summary:        Kuryr Kubernetes libraries
-%{?python_provide:%python_provide python2-%{service}}
 
-# debtcollector is a hidden dependency of oslo-config
 BuildRequires:  git-core
-BuildRequires:  python3-debtcollector
 BuildRequires:  python3-devel
-BuildRequires:  python3-hacking
-BuildRequires:  python3-oslo-config
-BuildRequires:  python3-pbr
-BuildRequires:  python3-setuptools
+BuildRequires:  pyproject-rpm-macros
 BuildRequires:  systemd-units
-BuildRequires:  python3-mock
-BuildRequires:  python3-oslotest
-BuildRequires:  python3-testrepository
-BuildRequires:  python3-testscenarios
-BuildRequires:  python3-ddt
-BuildRequires:  python3-testtools
-BuildRequires:  python3-oslo-log
-BuildRequires:  python3-oslo-reports
-BuildRequires:  python3-kuryr-lib
-BuildRequires:  python3-os-vif
-BuildRequires:  python3-cotyledon
-BuildRequires:  python3-flask
-BuildRequires:  python3-oslo-cache
-BuildRequires:  python3-netaddr
-BuildRequires:  python3-openstacksdk
-BuildRequires:  python3-stestr
-
-BuildRequires:  python3-retrying
-
-Requires:       python3-%{project}-lib >= 0.5.0
-Requires:       python3-pyroute2 >= 0.5.7
-Requires:       python3-requests >= 2.18.4
-Requires:       python3-eventlet >= 0.22.0
-Requires:       python3-oslo-cache >= 1.26.0
-Requires:       python3-oslo-config >= 2:6.1.0
-Requires:       python3-oslo-log >= 3.36.0
-Requires:       python3-oslo-reports >= 1.18.0
-Requires:       python3-oslo-serialization >= 2.18.0
-Requires:       python3-oslo-service >= 1.40.2
-Requires:       python3-oslo-utils >= 3.40.2
-Requires:       python3-os-vif >= 1.12.0
-Requires:       python3-prettytable >= 0.7.2
-Requires:       python3-stevedore >= 1.20.0
-Requires:       python3-cotyledon >= 1.7.3
-Requires:       python3-flask >= 1:0.12.3
-Requires:       python3-netaddr >= 0.7.19
-Requires:       python3-openstacksdk >= 0.59.0
-Requires:       python3-pbr >= 2.0.0
-
-Requires:       python3-retrying >= 1.2.3
-Requires:       python3-prometheus_client >= 0.6.0
-
 %description -n python3-%{service}
 %{common_desc}
 
@@ -106,18 +64,7 @@ This package contains the Kuryr Kubernetes Python library.
 %package -n python3-%{service}-tests
 Summary:        Kuryr Kubernetes tests
 
-BuildRequires:  python3-oslotest
-BuildRequires:  python3-testtools
-
 Requires:       python3-%{service} = %{version}-%{release}
-Requires:       python3-mock >= 2.0
-Requires:       python3-oslotest >= 1.10.0
-Requires:       python3-testrepository >= 0.0.18
-Requires:       python3-testscenarios >= 0.4
-Requires:       python3-ddt >= 1.0.1
-Requires:       python3-testtools >= 1.4.0
-Requires:       python3-stestr
-
 %description -n python3-%{service}-tests
 %{common_desc}
 
@@ -134,10 +81,6 @@ This package contains Kuryr files common to all services.
 %if 0%{?with_doc}
 %package doc
 Summary:    OpenStack Kuryr-Kubernetes documentation
-
-BuildRequires: python3-sphinx
-BuildRequires: python3-reno
-BuildRequires: python3-openstackdocstheme
 
 %description doc
 This package contains Kuryr Kubernetes documentation.
@@ -172,31 +115,47 @@ that Kubelet calls to.
 %endif
 %autosetup -n %{service}-%{upstream_version} -S git
 
-# Do not treat documentation build warnings as errors
-sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
-
 find %{module} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
-# Let's handle dependencies ourseleves
-rm -f requirements.txt
-rm -f test-requirements.txt
-rm -f doc/requirements.txt
 
-# Kill egg-info in order to generate new SOURCES.txt
-rm -rf kuryr_kubernetes.egg-info
+
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+# Automatic BR generation
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
 
 %build
-%{py3_build}
-PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
+%pyproject_wheel
 %if 0%{?with_doc}
 # generate html docs
-sphinx-build -W -b html doc/source doc/build/html
+%tox -e docs
 # generate man pages
 sphinx-build -W -b man doc/source doc/build/man
 %endif
 
 %install
-%{py3_install}
+%pyproject_install
+# generate config file
+PYTHONPATH=%{buildroot}/%{python3_sitelib} oslo-config-generator --config-file=etc/oslo-config-generator/kuryr.conf
+# The automatic value of pybasedir is wrong and unneeded and makes build to fail
+sed -i "/#pybasedir.*/d" etc/kuryr.conf.sample
 
 # Move config files to proper location
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{project}
@@ -225,7 +184,7 @@ install -p -D -m 755 cni_ds_init %{buildroot}%{_libexecdir}/%{project}/
 
 %check
 export OS_TEST_PATH='./kuryr_kubernetes/tests'
-PYTHON=%{__python3} stestr --test-path $OS_TEST_PATH run
+%tox -e %{default_toxenv}
 
 %pre -n python3-%{service}
 getent group %{project} >/dev/null || groupadd -r %{project}
@@ -269,7 +228,7 @@ exit 0
 %files -n python3-%{service}
 %license LICENSE
 %{python3_sitelib}/%{module}
-%{python3_sitelib}/%{module}-*.egg-info
+%{python3_sitelib}/%{module}-*.dist-info
 %exclude %{python3_sitelib}/%{module}/tests
 
 %files common
