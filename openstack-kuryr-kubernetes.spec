@@ -141,6 +141,10 @@ for pkg in %{excluded_brs}; do
   done
 done
 
+# pytz in RHEL uses tz data from the tzdata package so we
+# do not need versions constraints from upstream.
+sed -i 's/pytz.*/pytz/g' requirements.txt
+
 # Automatic BR generation
 %generate_buildrequires
 %if 0%{?with_doc}
