@@ -264,3 +264,4 @@ exit 0
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/kuryr-kubernetes/commit/a3095c048548966076bc96b061a51d96c47b858f
