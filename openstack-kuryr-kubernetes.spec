@@ -18,13 +18,23 @@ Object changes and manages Neutron resources to provide the Kubernetes Cluster \
 with OpenStack networking.
 
 Name:      openstack-%service
+<<<<<<< HEAD   (d192fa ManageSF commit)
 Version:   XXX
 Release:   XXX
+=======
+Version:   10.0.0
+Release:   1%{?dist}
+>>>>>>> CHANGE (c6b09a openstack-kuryr-kubernetes-10.0.0-1)
 Summary:   OpenStack networking integration with Kubernetes
 License:   Apache-2.0
 URL:       http://docs.openstack.org/developer/kuryr-kubernetes/
 
 Source0:   https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
+<<<<<<< HEAD   (d192fa ManageSF commit)
+=======
+#
+
+>>>>>>> CHANGE (c6b09a openstack-kuryr-kubernetes-10.0.0-1)
 Source1:   kuryr.logrotate
 Source2:   kuryr-controller.service
 Source3:   openstack-kuryr.tmpfs
@@ -264,3 +274,12 @@ exit 0
 %{_libexecdir}/%{project}/cni_ds_init
 
 %changelog
+<<<<<<< HEAD   (d192fa ManageSF commit)
+=======
+* Wed Apr 03 2024 RDO <dev@lists.rdoproject.org> 10.0.0-1
+- Update to 10.0.0
+
+* Fri Mar 15 2024 RDO <dev@lists.rdoproject.org> 10.0.0-0.1.0rc1
+- Update to 10.0.0.0rc1
+
+>>>>>>> CHANGE (c6b09a openstack-kuryr-kubernetes-10.0.0-1)
